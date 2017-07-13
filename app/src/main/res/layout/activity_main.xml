@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_lhj_bg"
+    tools:context="com.szw.autoscrollview.MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content" android:layout_marginTop="712px"
+        android:layout_height="wrap_content" android:orientation="horizontal">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_scroll1"
+        android:layout_width="238px"
+        android:layout_height="514px" android:layout_marginLeft="165px"></android.support.v7.widget.RecyclerView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_scroll2"
+            android:layout_width="238px" android:layout_marginLeft="28px"
+            android:layout_height="514px"></android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_scroll3"
+            android:layout_width="238px"  android:layout_marginLeft="22px"
+            android:layout_height="514px" ></android.support.v7.widget.RecyclerView>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent" android:clickable="true"
+        android:layout_height="540px" android:layout_marginTop="705px"></View>
+    
+    
+    <Button
+        android:id="@+id/btn_play_game"
+        android:layout_width="882px" android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
+        android:layout_height="112px" android:background="@drawable/btn_lhj_play_n" android:layout_marginBottom="200px" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/rlv_game_over_contain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <SurfaceView
+            android:id="@+id/sv_yh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:clickable="false" />
+
+    </RelativeLayout>
+
+    
+</RelativeLayout>
