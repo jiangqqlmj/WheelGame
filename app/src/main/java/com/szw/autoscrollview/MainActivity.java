@@ -2,9 +2,7 @@ package com.szw.autoscrollview;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -17,14 +15,8 @@ import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
-
-import com.szw.autoscrollview.anim.DrawText;
 import com.szw.autoscrollview.anim.DrawYH;
 import com.szw.autoscrollview.anim.HolderSurfaceView;
-import com.szw.autoscrollview.anim.YuanHuaActivity;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -67,7 +59,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        preparePlayDateSequence(imags,1,imags.length*4,true);
+        preparePlayDateSequence(imags,1,4,true);
 
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,10 +107,10 @@ public class MainActivity extends Activity {
 
     /**
      *  选中 规则 数据初始化
-     * @param arrs  要初始化的序列数据
+     * @param arrs  要初始化的序列数据（此处为 奖品图片序列）
      * @param choosePos  成功后选中的 条目 在数据序列中的角标
-     * @param endScrollPos 要旋转几次（）
-     * @param isSuccess  （游戏是否成功了）
+     * @param endScrollPos 要旋转几次（）次数多了，
+     * @param isSuccess  （游戏是否成功了）成功 数据序列会使3个都一样，失败序列会有其中1个不一样
      */
     public void preparePlayDateSequence(final Integer[] arrs, final int choosePos, final int endScrollPos, final boolean isSuccess){
         new AsyncTask<Void, Void, Void>() {
@@ -193,7 +185,8 @@ public class MainActivity extends Activity {
                 }
 
 
-                playAdds  = endScrollPos+ arrs.length  + succesPosation+1;
+                // endScrollPos* arrs.length = "要旋转的总圈数，是数组的整数倍"
+                playAdds  = endScrollPos*arrs.length+ arrs.length  + succesPosation+1;
                 Log.i(Tag,"to Play pos"+playAdds +" and succespos =" +succesPosation);
 
                 return null;
